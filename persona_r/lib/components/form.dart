@@ -86,6 +86,9 @@ class MyForm extends StatelessWidget {
                   fontWeight: FontWeight.w300),
             ),
           ),
+          SizedBox(
+            height: 10,
+          ),
           Text(
             'Location',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
