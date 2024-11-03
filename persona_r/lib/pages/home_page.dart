@@ -18,40 +18,42 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Color.fromARGB(255, 237, 237, 237),
-      body: Column(
-        children: [
-          Appbar(),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
-            child: SizedBox(
-              height: 200,
-              width: 400,
-              child: Card(
-                color: Color.fromARGB(255, 218, 218, 218),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Appbar(),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              child: SizedBox(
+                height: 200,
+                width: 400,
+                child: Card(
+                  color: Color.fromARGB(255, 218, 218, 218),
                   child: Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Center(
-                      child: Text(
-                        'Discover Your Inner Traits!',
-                        style: TextStyle(fontSize: 38, fontFamily: 'Inter'),
+                    padding: const EdgeInsets.all(8.0),
+                    child: Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: Center(
+                        child: Text(
+                          'Discover Your Inner Traits!',
+                          style: TextStyle(fontSize: 38, fontFamily: 'Inter'),
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          MyForm(),
-          SizedBox(
-            height: 20,
-          ),
-          MyButton(label: 'DISCOVER NOW', onTap: _showResults)
-        ],
+            SizedBox(
+              height: 30,
+            ),
+            MyForm(),
+            SizedBox(
+              height: 20,
+            ),
+            MyButton(label: 'DISCOVER NOW', onTap: _showResults)
+          ],
+        ),
       ),
     );
   }

@@ -13,7 +13,7 @@ class MyForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Name',
+            'Educational level',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5),
@@ -27,7 +27,7 @@ class MyForm extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide(color: Colors.blue.shade400),
               ),
-              hintText: 'Enter your Name',
+              hintText: "e.g., Bachelor's degree",
               hintStyle: TextStyle(
                   fontSize: 16,
                   color: Colors.grey.shade400,
@@ -39,7 +39,7 @@ class MyForm extends StatelessWidget {
             height: 10,
           ),
           Text(
-            'Age',
+            'Years of Experience',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5),
@@ -53,7 +53,7 @@ class MyForm extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide(color: Colors.blue.shade400),
                 ),
-                hintText: 'Enter your Age',
+                hintText: 'Enter your years of experience',
                 hintStyle: TextStyle(
                     fontSize: 16,
                     color: Colors.grey.shade400,
@@ -64,13 +64,11 @@ class MyForm extends StatelessWidget {
             height: 10,
           ),
           Text(
-            'Description',
+            'Industry',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5),
           TextFormField(
-            maxLines: null,
-            minLines: 5,
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -80,7 +78,30 @@ class MyForm extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide(color: Colors.blue.shade400),
               ),
-              hintText: 'ex: What are your hobbies and interests?',
+              hintText: 'e.g., tech, healthcare, finance',
+              hintStyle: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey.shade400,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w300),
+            ),
+          ),
+          Text(
+            'Location',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          ),
+          SizedBox(height: 5),
+          TextFormField(
+            decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: Colors.black54),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: Colors.blue.shade400),
+              ),
+              hintText: 'e.g., San Fransisco',
               hintStyle: TextStyle(
                   fontSize: 16,
                   color: Colors.grey.shade400,

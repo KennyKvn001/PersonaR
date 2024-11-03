@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "7887275198",
+    "project_id": "persona-r-a183e",
+    "storage_bucket": "persona-r-a183e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7887275198:android:0bf8afeb74ac7b87f48aef",
+        "android_client_info": {
+          "package_name": "com.example.persona_r"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0P2L1zpeoF3t91lc6xc_R2bwnxYvb0JM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

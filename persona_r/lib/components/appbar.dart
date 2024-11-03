@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:persona_r/components/profile.dart';
 
 class Appbar extends StatelessWidget {
   const Appbar({super.key});
@@ -18,18 +19,7 @@ class Appbar extends StatelessWidget {
                   fontFamily: 'JacquesFrancois'),
             ),
             Spacer(),
-            Container(
-              height: 50,
-              width: 50,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.person_outline,
-                size: 35,
-              ),
-            )
+            ProfileMenu(),
           ],
         ),
       ),
