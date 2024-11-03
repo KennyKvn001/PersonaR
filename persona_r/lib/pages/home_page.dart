@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:persona_r/components/appbar.dart';
 import 'package:persona_r/components/button.dart';
 import 'package:persona_r/components/form.dart';
+import 'package:persona_r/pages/result_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,13 +12,18 @@ class HomePage extends StatefulWidget {
 }
 
 // show results
-void _showResults() {}
+void _showResults(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => ResultPage()),
+  );
+}
 
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color.fromARGB(255, 237, 237, 237),
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 237, 237, 237),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -51,7 +57,10 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 20,
             ),
-            MyButton(label: 'DISCOVER NOW', onTap: _showResults)
+            MyButton(
+              label: 'DISCOVER NOW',
+              onTap: () => _showResults(context),
+            )
           ],
         ),
       ),
