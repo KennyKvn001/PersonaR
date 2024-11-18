@@ -41,8 +41,11 @@ class _HomePageState extends State<HomePage> {
                       padding: EdgeInsets.all(20.0),
                       child: Center(
                         child: Text(
-                          'Discover Your Inner Traits!',
-                          style: TextStyle(fontSize: 38, fontFamily: 'Inter'),
+                          'Discover your Salary Based on Experience',
+                          style: TextStyle(
+                              fontSize: 30,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w700),
                         ),
                       ),
                     ),

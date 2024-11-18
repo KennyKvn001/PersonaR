@@ -1,114 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:persona_r/pages/login_page.dart';
 
 class ProfileMenu extends StatelessWidget {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-
   ProfileMenu({super.key});
 
-  // Show confirmation dialog
-  Future<bool> showConfirmationDialog(
-      BuildContext context, String title, String content) async {
-    return await showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text(title),
-              content: Text(content),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  child: Text('Cancel'),
-                ),
-                TextButton(
-                  onPressed: () => Navigator.of(context).pop(true),
-                  child: Text('Confirm'),
-                  style: TextButton.styleFrom(foregroundColor: Colors.red),
-                ),
-              ],
-            );
-          },
-        ) ??
-        false;
-  }
-
-  // Show error dialog
-  void showErrorDialog(BuildContext context, String message) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Error'),
-          content: Text(message),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  // Logout method with fixed navigation
-  Future<void> logout(BuildContext context) async {
-    bool confirm = await showConfirmationDialog(
-      context,
-      'Logout',
-      'Are you sure you want to logout?',
-    );
-
-    if (confirm) {
-      try {
-        await _auth.signOut();
-        if (context.mounted) {
-          // Clear all routes and push to login page
-          Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => LoginPage()),
-            (Route<dynamic> route) => false,
-          );
-        }
-      } catch (e) {
-        if (context.mounted) {
-          showErrorDialog(context, 'Failed to logout: ${e.toString()}');
-        }
-      }
-    }
-  }
-
-  // Delete account method with fixed navigation
-  Future<void> deleteAccount(BuildContext context) async {
-    bool confirm = await showConfirmationDialog(
-      context,
-      'Delete Account',
-      'Are you sure you want to delete your account? This action cannot be undone.',
-    );
-
-    if (confirm) {
-      try {
-        await _auth.currentUser?.delete();
-        if (context.mounted) {
-          // Clear all routes and push to login page
-          Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => LoginPage()),
-            (Route<dynamic> route) => false,
-          );
-        }
-      } catch (e) {
-        if (context.mounted) {
-          showErrorDialog(
-            context,
-            'Failed to delete account. Please re-authenticate and try again.',
-          );
-        }
-      }
-    }
-  }
-
   void showProfileBottomSheet(BuildContext context) {
-    final User? user = _auth.currentUser;
+    // final User? user = _auth.currentUser;
 
     showModalBottomSheet(
       context: context,
@@ -145,14 +41,14 @@ class ProfileMenu extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              user?.displayName ?? 'User',
+              'User',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              user?.email ?? '',
+              'user@gmail.com',
               style: TextStyle(
                 color: Colors.grey[600],
               ),
@@ -161,10 +57,6 @@ class ProfileMenu extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.logout),
               title: Text('Logout'),
-              onTap: () {
-                Navigator.pop(context); // Close bottom sheet first
-                logout(context);
-              },
             ),
             ListTile(
               leading: Icon(Icons.delete_forever, color: Colors.red),
@@ -172,10 +64,6 @@ class ProfileMenu extends StatelessWidget {
                 'Delete Account',
                 style: TextStyle(color: Colors.red),
               ),
-              onTap: () {
-                Navigator.pop(context); // Close bottom sheet first
-                deleteAccount(context);
-              },
             ),
           ],
         ),
