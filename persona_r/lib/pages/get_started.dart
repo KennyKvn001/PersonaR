@@ -45,7 +45,7 @@ class GetStarted extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 30),
             Container(
               width: 350,
               height: 300,
@@ -54,7 +54,7 @@ class GetStarted extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Column(
@@ -72,7 +72,7 @@ class GetStarted extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 50),
+            SizedBox(height: 40),
             MyButton(
               label: 'GET STARTED',
               onTap: () => _navigateToHome(context),

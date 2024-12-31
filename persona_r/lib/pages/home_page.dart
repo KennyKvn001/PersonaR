@@ -34,12 +34,12 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: SizedBox(
-                height: 200,
+                height: 160,
                 width: 400,
                 child: Card(
                   color: const Color.fromARGB(255, 218, 218, 218),
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Center(
                       child: DefaultTextStyle(
                         style: const TextStyle(
